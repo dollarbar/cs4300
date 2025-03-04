@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 
 
 
@@ -31,7 +31,8 @@ class Booking(models.Model):
     # one-to-one for both movie and seat
     # So, I think just one-to-one to seat since seat is a many-to-one to movie
     seat = models.ForeignKey(Seat, on_delete=models.CASCADE)
-    user = models.CharField(max_length=30)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
     booking_date = models.DateField()
 
     def __str__(self):
