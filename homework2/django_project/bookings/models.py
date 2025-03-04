@@ -1,5 +1,13 @@
 from django.db import models
 
+
+
+
+class SeatChoices(models.TextChoices):
+    ONE = 'one', 'Available'
+    TWO = 'two', 'Booked'
+
+
 # Create your models here.
 class Movie(models.Model):
     title = models.CharField(max_length=30)
@@ -14,10 +22,10 @@ class Seat(models.Model):
     # many-to-one
     movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
     seat_number = models.IntegerField()
-    booking_status = models.TextChoices("BookingStatus", "Booked Available")
+    seat_status = models.CharField(max_length=20, choices=SeatChoices.choices)
 
     def __str__(self):
-        return self.seat_number
+        return str(self.seat_number)
 
 class Booking(models.Model):
     # one-to-one for both movie and seat
@@ -27,7 +35,7 @@ class Booking(models.Model):
     booking_date = models.DateField()
 
     def __str__(self):
-        return self.user
+        return str(self.user)
 
 
 
