@@ -3,14 +3,30 @@
 {% block content %}
 
 <h1>Movie Listings</h1>
-<ul>
-  {% for movie in movie_list %}
-  <li><a href="{% url 'seat_booking' movie.id %}">MOVIE: {{ movie }}</a></li>
-  <p>{{ movie.description }}</p>
-  <p>{{ movie.release_date }}</p>
-  <p>{{ movie.duration }}</p>
-  {% endfor %}
-</ul>
+<div class="row">
+  <div class="col-4">
+
+      {% for movie in movie_list %}
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Movie: {{ movie.title }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{ movie.release_date }}</h6>
+          <p class="card-text">{{ movie.description }}</p>
+          <a href="{% url 'seat_booking' movie.id %}" class="card-link">Book</a>
+          <p>{{ movie.duration }} hours long</p>
+
+        </div>
+
+      </div>
+      &nbsp;
+      &nbsp;
+      &nbsp;
+      {% endfor %}
+
+
+  </div>
+</div>
+
 
 
 

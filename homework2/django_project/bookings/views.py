@@ -57,7 +57,7 @@ def register(request):
         if form.is_valid():
             user = form.save()
             login(request, user)  # Log the user in after registration
-            return redirect("movie_listing")  # Redirect to home page
+            return redirect("")  # Redirect to home page
     else:
         form = RegisterForm()
 

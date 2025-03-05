@@ -5,12 +5,15 @@
 
 
 
-<ul>
+<ul style="list-style-type: none;">
   {% for booking in bookings %}
   <li>Movie: {{ booking.movie.title }}</li>
     
     <p>Seat Number{{ booking.seat.seat_number }}</p>
     <p>Booking Date {{ booking.booking_date }}</p>
+    <p>--------------------------------</p>
+    &nbsp;
+    &nbsp;
   {% endfor %}
 </ul>
 

@@ -2,15 +2,21 @@
 
 {% block content %}
 <h1>Seat Booking</h1>
-
+{% if not seats %}
+<p>Movie is Completely Booked</p>
+{% else %}
 <form method="post">
   {% csrf_token %}
-  <p>Select one or more options:</p>
+  <p>The following seats are available:</p>
+
   {% for seat in seats %}
+    <div class="form-check">
       <label><input type="radio" name="seats" value={{ seat.seat_number }}>{{ seat }}</label>
+    </div>
   {% endfor %}
   <button type="submit">Submit</button>
 </form>
+{% endif %}
 
 
   
