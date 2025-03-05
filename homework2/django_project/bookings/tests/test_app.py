@@ -1,6 +1,6 @@
 import pytest
 from django.contrib.auth.models import User
-from .models import Movie, Seat, Booking
+from bookings.models import Movie, Seat, Booking
 from datetime import date
 
 @pytest.mark.django_db
