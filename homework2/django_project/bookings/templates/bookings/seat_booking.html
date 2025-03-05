@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Seat Booking</h1>
+
+<form method="post">
+  {% csrf_token %}
+  <p>Select one or more options:</p>
+  {% for seat in seats %}
+      <label><input type="radio" name="seats" value={{ seat.seat_number }}>{{ seat }}</label>
+  {% endfor %}
+  <button type="submit">Submit</button>
+</form>
+
+
+  
+
+
+{% endblock %}

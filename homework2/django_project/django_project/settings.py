@@ -27,6 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+LOGIN_REDIRECT_URL = "/movie_list/"
+LOGOUT_REDIRECT_URL = "/movie_list/"
 
 # Application definition
 
